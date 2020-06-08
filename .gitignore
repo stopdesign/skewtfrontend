@@ -116,3 +116,7 @@ tmp/*
 dataapi/Gribfiles/*.grib2
 ledger/static/ledger/compiled_assets/*
 .vscode
+
+
+skewtapp/static/
+static/
