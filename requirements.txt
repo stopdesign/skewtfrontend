@@ -1,0 +1,7 @@
+django
+django-widget-tweaks
+django-webpack-loader 
+gunicorn
+psycopg2-binary
+python-dotenv
+selenium
