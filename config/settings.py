@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
-    # "widget_tweaks",
-    # 'django_extensions',
     'skewtapp'
 ]
 
