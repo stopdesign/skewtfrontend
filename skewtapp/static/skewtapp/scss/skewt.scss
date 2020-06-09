@@ -1,0 +1,49 @@
+.height-75 {
+    height: 100%;
+    @media (min-width: 992px) {
+      height: 75%;
+    }
+  }
+  
+  .d-flex-custom {
+    display: block;
+    @media (min-width: 992px) {
+      display: flex;
+    }
+  }
+  
+  .windyapi {
+    flex-grow: 1;
+  }
+  
+  
+  #tephi-wind-cld-container {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    padding: 0;
+    @media (min-width: 992px) {
+      grid-template-columns: 9fr 1fr 2fr;
+    }
+  }
+  
+  #tables-container {
+    display: grid;
+    grid-template-columns: 4fr 2fr 2fr;
+    padding: 0;
+  }
+  
+  
+  #station-label {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 4px 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Times;
+    left: 5px;
+    top: 5px;
+  }
+  

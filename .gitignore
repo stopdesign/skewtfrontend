@@ -5,7 +5,6 @@ staticfiles
 .production_env
 db.sqlite3
 getting-started/*
-config/static/
 
 
 *.egg-info
@@ -107,16 +106,8 @@ target/
 __pycache__/
 local_settings.py
 
-.env
+
 db.sqlite3
-deleteme.py
-deleteme.txt
-dataapi/test_gribfiles/*
 tmp/*
-dataapi/Gribfiles/*.grib2
-ledger/static/ledger/compiled_assets/*
 .vscode
 
-
-skewtapp/static/
-static/
