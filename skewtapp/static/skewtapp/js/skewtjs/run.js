@@ -47,7 +47,7 @@ const run_skewt = () => {
   }
  
   async function fetchSondeAllSondes() {
-    const response = await fetch(`${SkewTApiPath}/api/available`);
+    const response = await fetch(`${SkewTApiPath}/api/available/`);
     return response.json();
   }
 
