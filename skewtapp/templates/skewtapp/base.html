@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<html>
+  <head>
+      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124270517-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-124270517-1');
+      </script> -->
+
+    <title>Tephigrams & SkewTs | weather data from the upper atmosphere</title>
+    <!-- <meta name="keywords" content="tephigram, tephigrams, SkewT-LogP, skewt, forecast, weather, wind, atmosphere, sounding, balloon, raob, radiosonde">
+    <meta name="description" content="Tephigram and SkewT diagrams displaying radiosonde data from weather balloons, as well as vertical profiles from NWP models.  ">
+    <meta name="author" content="John C. Kealy">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tephigrams & SkewTs | weather data from the upper atmosphere">
+    <meta property="og:description" content="Tephigram and SkewT diagrams displaying radiosonde data from weather balloons, as well as vertical profiles from NWP models.">
+    <meta property="og:image" content="/static/example_tephi.jpg">
+    <meta property="og:url" content="https://skewt.org">
+    <meta property="twitter:url" content="https://skewt.org">
+    <meta property="twitter:title" content="Tephigrams & SkewTs | weather data from the upper atmosphere">
+    <meta property="twitter:description" content="Tephigram and SkewT diagrams displaying radiosonde data from weather balloons, as well as vertical profiles from NWP models.">
+    <meta property="twitter:image" content="/static/example_tephi.png"> -->
+
+    <!-- <link href='https://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'> -->
+
+    {% render_bundle 'main' 'css' 'DEFAULT' %}
+  </head>
+  <body>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>    
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+    {% render_bundle 'main' 'js' 'DEFAULT' %}
+  </body>
+</html>

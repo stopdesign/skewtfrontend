@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap');
+
+.article {
+    padding: 5%;
+}
+
+.article h1 {
+    font-family: 'Yeseva One', cursive;
+}
+
+.article img {
+    width: 70%; 
+    display: block; 
+    margin: 0 auto
+}
+.article p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+    height: 100px;
+    background-color: #446948;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 55px;
+    span {
+        color: white;
+        margin: 22px;
+        font-size: 15px;
+    }
+}

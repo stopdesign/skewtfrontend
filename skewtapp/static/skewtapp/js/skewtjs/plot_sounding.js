@@ -2,7 +2,7 @@ const plotSounding = (Ascent, S) => {
   let i;
 
   document.getElementById("station-label").innerText = `${Ascent.station_name} (${Ascent.wmo_id})`
-  document.getElementById("date").innerText = `${Ascent.sonde_validtime} UTC`
+  document.getElementById("date").innerText = `${Ascent.sonde_validtime}`
 
   const closest = (list, x) => {
     let miin;

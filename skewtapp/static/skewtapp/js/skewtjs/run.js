@@ -50,10 +50,15 @@ const run_skewt = () => {
     const response = await fetch(`${SkewTApiPath}/api/available/`);
     return response.json();
   }
-
+  
   async function nearestSonde(lat, lon) {
     const response = await fetch(`${SkewTApiPath}/api/nearest/?lat=${lat}&lon=${lon}`);
-    return response.json();
+    if (response.ok) {
+      return response.json();
+    } else {
+      const camborne = await fetch(`${SkewTApiPath}/api/sondes/?wmo_id=03808`);
+      return camborne.json();
+    }
   }
 
   const onMarkerClick = (wmo_id) => {
