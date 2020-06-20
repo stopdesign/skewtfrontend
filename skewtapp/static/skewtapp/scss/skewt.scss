@@ -47,3 +47,12 @@
     top: 5px;
   }
   
+  .gps_ring {
+    border: 5px solid	#8B0000;
+    border-radius: 50px;
+    height: 23px;
+    width: 27px;
+    animation: pulsate 2s ease-out;
+    animation-iteration-count: infinite;
+ }
+ 

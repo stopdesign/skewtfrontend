@@ -96,17 +96,18 @@ const run_skewt = () => {
       if (pb) { pb.classList.add("d-none") }
 
       nearestSonde(position[0], position[1]).then(nearest => {
-
         onMarkerClick(nearest.wmo_id)
+        window.pulsing_marker = L.marker([nearest.lat, nearest.lon], {icon: cssIcon}).addTo(map);
       });
 
-      window.pulsing_marker = L.marker([50.2183, -5.3275], {icon: cssIcon}).addTo(map);
-
+      
       fetchSondeAllSondes().then((allSondes) => {
         allSondes.forEach((sonde) => {
           let M = L.marker({'lat': sonde.lat, 'lon': sonde.lon}, {icon:myIcon, Id: sonde.wmo_id}).addTo(map);
           M.addEventListener('click', function() {
-           onMarkerClick(sonde.wmo_id);
+            let newLatLng = new L.LatLng(sonde.lat, sonde.lon);
+            pulsing_marker.setLatLng(newLatLng);
+            onMarkerClick(sonde.wmo_id);
           })
         })
       });
