@@ -73,45 +73,51 @@ const run_skewt = () => {
     onMarkerClick(currentWmoId );
   });
 
-  getPosition().then((position) => {    // geolocator wrapper
-    // Part of the windy api, my personal key and the starting lat/lon, zoom, and overlay.
-    const options = {
-      key: 'psfAt10AZ7JJCoM3kz0U1ytDhTiLNJN3',
-      lat:  position[0],
-      lon: position[1],
-      zoom: 5,
-      overlay: "clouds",
-      isolines: "pressure"
-    };
-
-    windyInit( options, windyAPI => {
-
-      const { store, map } = windyAPI;
-
-        // Make windy logo clickable
-      const logo = document.getElementById("logo");       // Make the windy logo clickable. Required by the windy api T&Cs.
-      logo.setAttribute('href','https://www.windy.com');
-
-      let pb = document.getElementById("progress-bar")
-      if (pb) { pb.classList.add("d-none") }
-
-      nearestSonde(position[0], position[1]).then(nearest => {
-        onMarkerClick(nearest.wmo_id)
-        window.pulsing_marker = L.marker([nearest.lat, nearest.lon], {icon: cssIcon}).addTo(map);
-      });
-
-      
-      fetchSondeAllSondes().then((allSondes) => {
-        allSondes.forEach((sonde) => {
-          let M = L.marker({'lat': sonde.lat, 'lon': sonde.lon}, {icon:myIcon, Id: sonde.wmo_id}).addTo(map);
-          M.addEventListener('click', function() {
-            let newLatLng = new L.LatLng(sonde.lat, sonde.lon);
-            pulsing_marker.setLatLng(newLatLng);
-            onMarkerClick(sonde.wmo_id);
+  const main = (position) => {
+      // Part of the windy api, my personal key and the starting lat/lon, zoom, and overlay.
+      const options = {
+        key: 'psfAt10AZ7JJCoM3kz0U1ytDhTiLNJN3',
+        lat:  position[0],
+        lon: position[1],
+        zoom: 5,
+        overlay: "clouds",
+        isolines: "pressure"
+      };
+  
+      windyInit( options, windyAPI => {
+  
+        const { store, map } = windyAPI;
+  
+          // Make windy logo clickable
+        const logo = document.getElementById("logo");       // Make the windy logo clickable. Required by the windy api T&Cs.
+        logo.setAttribute('href','https://www.windy.com');
+  
+        let pb = document.getElementById("progress-bar")
+        if (pb) { pb.classList.add("d-none") }
+  
+        nearestSonde(position[0], position[1]).then(nearest => {
+          onMarkerClick(nearest.wmo_id)
+          window.pulsing_marker = L.marker([nearest.lat, nearest.lon], {icon: cssIcon}).addTo(map);
+        });
+  
+        
+        fetchSondeAllSondes().then((allSondes) => {
+          allSondes.forEach((sonde) => {
+            let M = L.marker({'lat': sonde.lat, 'lon': sonde.lon}, {icon:myIcon, Id: sonde.wmo_id}).addTo(map);
+            M.addEventListener('click', function() {
+              let newLatLng = new L.LatLng(sonde.lat, sonde.lon);
+              pulsing_marker.setLatLng(newLatLng);
+              onMarkerClick(sonde.wmo_id);
+            })
           })
-        })
-      });
-    });//windyInit
+        });
+      });//windyInit
+  }
+
+  getPosition().then((position) => {    // geolocator wrapper
+    main(position);
+  }).catch(() => {
+    main([50.2183, -5.3275]);
   });
 }
 
