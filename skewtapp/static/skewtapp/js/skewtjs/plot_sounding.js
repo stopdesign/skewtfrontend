@@ -2,7 +2,7 @@ const plotSounding = (Ascent, S) => {
   let i;
 
   document.getElementById("station-label").innerText = `${Ascent.station_name} (${Ascent.wmo_id})`
-  document.getElementById("date").innerText = `${Ascent.sonde_validtime}`
+  document.getElementById("date").innerText = `${Ascent.sonde_validtime.replace("T", " ")}`
 
   const closest = (list, x) => {
     let miin;
@@ -85,8 +85,8 @@ const plotSounding = (Ascent, S) => {
         let v = alpha * (higherV - lowerV) + lowerV;
         newT.push(t - 273.15);
         newTd.push(td - 273.15);
-        newU.push(u * 1.94384);
-        newV.push(v * 1.94384);
+        newU.push(u);
+        newV.push(v);
       }
     });
     data.pressurehPA = S.P;

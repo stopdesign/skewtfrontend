@@ -13,8 +13,9 @@ const cbarbs = (Ascent, S) => {
   const initalWindTable = () => {
     let wind = uvToWind(Ascent.surfaceUKT, Ascent.surfaceVKT);
     document.getElementById("as-altitude").innerText = `${Ascent.surfacePresshPA} hPa / 0 km`
-    document.getElementById("as-winddir").innerText = `${Math.round(wind[1], 0)} °`
-    document.getElementById("as-windspeed").innerText = `${Math.round(wind[0], 0)} kt`
+
+    if (wind[1]) document.getElementById("as-winddir").innerText = `${Math.round(wind[1], 0)} °`
+    if (wind[0]) document.getElementById("as-windspeed").innerText = `${Math.round(wind[0], 0)} kt`
   }
 
   function wind_tooltip() {

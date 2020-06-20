@@ -47,6 +47,17 @@ const clouds = (Ascent, S) => {
          .style("font-size", "13px")
          .attr("xlink:href","#"+cloudPpx+"ID")
          .text(Z+" m");
+
+               // Add a text label.
+      svg.append("text")
+      .attr("x",20)
+      .attr("y",5)
+      .append("textPath")
+      .attr("fill", "green")
+      .attr("fill-opacity", 0.7 )
+      .style("font-size", "13px")
+      .attr("xlink:href","#"+cloudPpx+"ID")
+      .text(Math.round(Z*3.28084)+" ft");
   }
 
   [0, 1500, 5000, 8000, 12000, 15000, 18000].forEach(z => {
@@ -74,8 +85,6 @@ const clouds = (Ascent, S) => {
     .style("font-size", "13px")
     .attr("xlink:href","#"+cloudPpx+"ID")
     .text("0 ℃");
-
-
 }
 
 export {clouds};
