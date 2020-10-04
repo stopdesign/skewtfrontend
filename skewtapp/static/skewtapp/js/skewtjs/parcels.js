@@ -86,7 +86,7 @@ const parcels = (Ascent, S) => {
   }
 
   const parcelAscent = temp => {
-    const LCL = findLCL(Ascent.surfaceTempC, Ascent.surfaceTdC, Ascent.surfacePresshPA);
+    const LCL = findLCL(temp, Ascent.surfaceTdC, Ascent.surfacePresshPA);
     let Px=[];
     let Tt;
     let dry = true;
